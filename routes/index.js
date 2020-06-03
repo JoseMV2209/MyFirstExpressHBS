@@ -22,7 +22,7 @@ router.get('/listado', (req, res, next) => {
       return res.status(500).json(error);
     }
 
-    res.render('movies-list', {
+    res.render('movies_list', {
       title: 'Listado de peliculas.',
       layout: 'layout.hbs',
       movies

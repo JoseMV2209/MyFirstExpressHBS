@@ -1,10 +1,12 @@
 
+<h1>{{title}}</h1>
+
+<br/>
+
 {{#if movies.length}}
     {{#each movies}}
 
-        {{title}}
-
-        {{ id }}, {{ cNombre}}
+        <p>{{ id }}. {{cNombre}}</p>
 
     {{/each}}
 {{/if}}
