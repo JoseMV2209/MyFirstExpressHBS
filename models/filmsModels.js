@@ -9,7 +9,7 @@ Movies.fetchAll = (cb) => {
         return cb("No se ha podido crear la conexión.");
     }
     
-    const SQL = "SELECT * FROM movies LIMIT 5";
+    const SQL = "SELECT * FROM movies";
 
     conn.query(SQL, (error, rows) => {
 
@@ -21,6 +21,20 @@ Movies.fetchAll = (cb) => {
 
     });
 
+}
+
+Movies.insert = (movie, cb) => {
+
+    if(!conn){
+        return cd("No se ha podido crear la conexion.");
+    }
+    conn.query("INSERT INTO movies SET ?", movie, (error, result) => {
+        if(error){
+            return cb(error);
+        }else{
+            return cb(null, result.insertId);
+        }
+    });
 }
 
 module.exports = Movies;

@@ -32,4 +32,19 @@ router.get('/listado', (req, res, next) => {
 
 });
 
+router.get('/insertar', (req, res, next) => {
+
+  const MOVIE = {
+    "cNombre":"Es una prueba2"
+  };
+
+  FilmsModels.insert(MOVIE, (error, insertID) => {
+    if(insertID){
+      return res.status(200).send('Pelicula añadida -> ' + insertID);
+    }
+    return res.status(500).json('Error al añadir la pelicula, ' + insertID);
+  });
+
+});
+
 module.exports = router;
